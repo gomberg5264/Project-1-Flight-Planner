@@ -10,6 +10,24 @@
   </head>
 
   <body>
+
+    <header>
+      <nav>
+        <ul>
+          <a href="#">Sign Up</a> <!-- Only for users not logged in -->
+          <a href="#">Log In</a> <!-- Only for users not logged in -->
+          <a href="#">Book A New Flight</a> <!-- All logged in users -->
+          <a href="#">View Your Flights</a> <!-- All logged in users -->
+          <a href="#">Add A New Flight</a> <!-- Admin Only -->
+          <a href="#">View All Flights</a> <!-- Admin Only -->
+          <a href="#">View All Users</a> <!-- Admin Only -->
+          <<a href="#">Log Out</a> <!-- All logged in users -->
+        </ul>
+      </nav>
+    </header>
+
+    <h1>Flight Planner</h1>
+    
     <%= yield %>
   </body>
 </html>

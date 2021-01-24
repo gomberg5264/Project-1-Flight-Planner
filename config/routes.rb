@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/flights/search' => 'flights#search', :as => 'search_flights_path'  
+  root :to => "pages#home"
+  resources :users
+  resources :flights
 end

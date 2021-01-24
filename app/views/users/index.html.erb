@@ -1,0 +1,8 @@
+<h2>User List</h2>
+
+<p>Make this only accessibe to admin!</p>
+
+<% @users.each do |user| %>
+  <%= link_to user.name, user_path(user.id) %>
+
+<% end %>
