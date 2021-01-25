@@ -14,20 +14,22 @@
     <header>
       <nav>
         <ul>
-          <a href="#">Sign Up</a> <!-- Only for users not logged in -->
-          <a href="#">Log In</a> <!-- Only for users not logged in -->
-          <a href="#">Book A New Flight</a> <!-- All logged in users -->
-          <a href="#">View Your Flights</a> <!-- All logged in users -->
-          <a href="#">Add A New Flight</a> <!-- Admin Only -->
-          <a href="#">View All Flights</a> <!-- Admin Only -->
-          <a href="#">View All Users</a> <!-- Admin Only -->
+          <%= link_to "Home", root_path %>
+          <%= link_to "Sign Up", new_user_path %> <!-- Only for users not logged in -->
+          <%= link_to "Log In", sessions_new_path %> <!-- Only for users not logged in -->
+          <%# <%= link_to "View Your Details", user_path(@current_user.id) %> <!-- All logged in users--> %>
+          <%= link_to "Book A Flight", search_flights_path %> <!-- All logged in users -->
+          <%# <%= link_to "View Your Flights", user_path %> <!-- All logged in users --> %>
+          <%= link_to "Add A New Flight", new_flight_path %> <!-- Admin Only -->
+          <%= link_to "View All Flights", flights_path %>  <!-- Admin Only -->
+          <%= link_to "View All Users", users_path %> <!-- Admin Only -->
           <<a href="#">Log Out</a> <!-- All logged in users -->
         </ul>
       </nav>
     </header>
 
     <h1>Flight Planner</h1>
-    
+
     <%= yield %>
   </body>
 </html>

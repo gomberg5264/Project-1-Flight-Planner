@@ -1,2 +1,26 @@
-<h1>Flights#search</h1>
-<p>Find me in app/views/flights/search.html.erb</p>
+<h2>Search For Flights</h2>
+
+<%= form_tag  do %>
+
+  <%= label_tag "Departure City", nil, :for => "departure_airport" %>
+  <select id="departure_airport" name="departure_airport">
+    <option value=""></option>
+    <% @departure_airports.each do |airport| %>
+      <option value="<%= airport.id %>"><%= airport.city %></option>
+    <% end %>
+  </select>
+
+  <%= label_tag "Arrival City", nil, :for => "arrival_airport" %>
+  <select id="arrival_airport" name="arrival_airport">
+      <option value=""></option>
+    <% @arrival_airports.each do |airport| %>
+      <option value="<%= airport.id %>"><%= airport.city %></option>
+    <% end %>
+  </select>
+
+  <%= label_tag "Departure Date" %>
+  <%= date_field_tag :depart_time %>
+
+  <%= submit_tag "Search" %>
+
+<% end %>

@@ -3,6 +3,14 @@
 <p>Make this only accessibe to admin!</p>
 
 <% @users.each do |user| %>
-  <%= link_to user.name, user_path(user.id) %>
+  <p>
+      <%= link_to user.name, user_path(user.id) %>
+  </p>
+  <p>
+      Email: <%= user.email %>
+  </p>
+  <p>
+      Mobile: <%= user.mobile %>
+  </p>
 
 <% end %>

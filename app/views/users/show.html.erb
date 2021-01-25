@@ -1,5 +1,36 @@
 <h2><%= @user.name %></h2>
 
+<h3>Current Booked Flights</h3>
+
 <% @user.flights.each do |flight| %>
-  <%= flight.code %>
+  <%= link_to flight.code, flight_path(flight.id) %>
+  <%= button_to "Cancel booking", flight_cancel_path(flight.id), :method => 'get' %>
 <% end %>
+
+<h3>Personal Details</h3>
+
+<p>Mobile: <%= @user.mobile %></p>
+<p>Email: <%= @user.email %></p>
+
+<h3>Edit Your Details</h3>
+
+<%= form_for @user do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, :required => true %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email, :required => true %>
+
+  <%= f.label :mobile %>
+  <%= f.text_field :mobile %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <!-- I might later add the option to change password by first submitting the original -->
+
+  <%= f.submit "Edit Details" %>
+
+<% end %>
+
+<%= button_to "Delete Account", @user, :method => 'delete' %>

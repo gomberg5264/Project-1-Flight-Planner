@@ -23,10 +23,10 @@ a3 = ArrivalAirport.create :name => "Pulkovo Airport", :city => "Saint Petersbur
 puts "#{ ArrivalAirport.count } airports."
 
 Flight.destroy_all
-f1 = Flight.create :code => 'SU123', :date => '2021-05-01', :time => '07:00:00', :seats => 100
-f2 = Flight.create :code => 'SU456', :date => '2021-05-05', :time => '19:00:00', :seats => 150
-f3 = Flight.create :code => 'SU777', :date => '2021-05-08', :time => '07:00:00', :seats => 300
-f4 = Flight.create :code => 'SU888', :date => '2021-05-09', :time => '19:00:00', :seats => 350
+f1 = Flight.create :code => 'SU123', :depart_time => '2021-05-01 07:00:00', :seats => 100
+f2 = Flight.create :code => 'SU456', :depart_time => '2021-05-05 19:00:00', :seats => 150
+f3 = Flight.create :code => 'SU777', :depart_time => '2021-05-08 07:00:00', :seats => 300
+f4 = Flight.create :code => 'SU888', :depart_time => '2021-05-09 19:00:00', :seats => 350
 puts "#{ Flight.count } flights."
 
 # Associations

@@ -1,0 +1,11 @@
+<h2>Results</h2>
+
+<% @flights.each_with_index do |flight, index| %>
+  <% if @desired_departure_airport.present? && @departure_airports[index] != @desired_departure_airport %>
+  <% elsif @desired_arrival_airport.present? && @arrival_airports[index] != @desired_arrival_airport %>
+  <% elsif @desired_date.present? && @desired_date != flight.depart_time.to_s.slice(0, 10) %>
+  <% else %>
+    <p><%= link_to flight.code, flight_path(flight.id) %> <%= flight.depart_time %> <%= @departure_airports[index].city %> to <%= @arrival_airports[index].city %> </p>
+  <% end %>
+
+<% end %>

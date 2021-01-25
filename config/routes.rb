@@ -1,6 +1,15 @@
 Rails.application.routes.draw do
-  get '/flights/search' => 'flights#search', :as => 'search_flights_path'  
   root :to => "pages#home"
+
+  get '/flights/search' => 'flights#search', :as => 'search_flights'
+  post '/flights/search' => 'flights#results', :as => 'results_flights'
+
   resources :users
   resources :flights
+
+  get '/sessions/new' => 'sessions#new'
+  post '/sessions/create' => 'sessions#create'
+
+  post '/flights/book/:id' => 'flights#book', :as => 'flight_book'
+  get '/flights/cancel/:id' => 'flights#cancel', :as => 'flight_cancel'
 end

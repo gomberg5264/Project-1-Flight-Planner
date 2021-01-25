@@ -1,2 +1,20 @@
-<h1>Flights#show</h1>
-<p>Find me in app/views/flights/show.html.erb</p>
+<h2><%= @flight.code %></h2>
+
+<p>Departure Airport: <%= @departure_airport.name %> in <%= @departure_airport.city %> </p>
+<p>Departure Time: <%= @flight.depart_time %></p>
+
+<p>Arrival Airport: <%= @arrival_airport.name %> in <%= @arrival_airport.city %> </p>
+
+<p>Seats Available: <%= @flight.seats %></p>
+
+<%= button_to "Book Flight", flight_book_path, :method => 'post' %>
+
+<p>Make this only available to admin!</p>
+
+<section class="admin-only">
+  <h3>Edit Flight Details</h3>
+
+  <%= render :partial => "form" %>
+
+  <%= button_to "Delete Flight", @flight, :method => 'delete' %>
+</section>
