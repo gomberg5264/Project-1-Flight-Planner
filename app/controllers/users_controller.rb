@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  before_action :check_for_admin, only: [:index]
+  before_action :check_for_no_login, only: [:new, :create]
+  before_action :check_for_specific_user, only: [:update, :show, :destroy]
+
   def index
     @users = User.all
   end

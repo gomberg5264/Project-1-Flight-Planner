@@ -5,31 +5,40 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/stylesheet/_bootstrap-includes.css">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <div class="container">
+      <header>
+        <nav>
+          <ul>
+            <%= link_to "Home", root_path %>
+            <% unless @current_user.present? %>
+              <%= link_to "Sign Up", new_user_path %> <!-- Only for users not logged in -->
+              <%= link_to "Log In", sessions_new_path %> <!-- Only for users not logged in -->
+            <% else %>
+              <%= link_to "View Your Flights", user_path(@current_user.id) %> <!-- All logged in users-->
+              <%= link_to "Search For Flights", search_flights_path %> <!-- All logged in users -->
+              <%= link_to "View All Flights", flights_path %> <!-- All logged in users -->
+              <% if @current_user.admin? %>
+                <%= link_to "Add A New Flight", new_flight_path %> <!-- Admin Only -->
+                <%= link_to "View All Users", users_path %> <!-- Admin Only -->
+              <% end %>
+              <%= link_to "Log Out", sessions_destroy_path %> <!-- All logged in users -->
+            <% end %>
+          </ul>
+        </nav>
+      </header>
 
-    <header>
-      <nav>
-        <ul>
-          <%= link_to "Home", root_path %>
-          <%= link_to "Sign Up", new_user_path %> <!-- Only for users not logged in -->
-          <%= link_to "Log In", sessions_new_path %> <!-- Only for users not logged in -->
-          <%# <%= link_to "View Your Details", user_path(@current_user.id) %> <!-- All logged in users--> %>
-          <%= link_to "Book A Flight", search_flights_path %> <!-- All logged in users -->
-          <%# <%= link_to "View Your Flights", user_path %> <!-- All logged in users --> %>
-          <%= link_to "Add A New Flight", new_flight_path %> <!-- Admin Only -->
-          <%= link_to "View All Flights", flights_path %>  <!-- Admin Only -->
-          <%= link_to "View All Users", users_path %> <!-- Admin Only -->
-          <<a href="#">Log Out</a> <!-- All logged in users -->
-        </ul>
-      </nav>
-    </header>
+      <h1>Flight Planner</h1>
 
-    <h1>Flight Planner</h1>
-
-    <%= yield %>
+      <%= yield %>
+    </div>
   </body>
 </html>

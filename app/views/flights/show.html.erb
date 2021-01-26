@@ -9,12 +9,12 @@
 
 <%= button_to "Book Flight", flight_book_path, :method => 'post' %>
 
-<p>Make this only available to admin!</p>
+<% if @current_user.admin? %>
+  <section>
+    <h3>Edit Flight Details</h3>
 
-<section class="admin-only">
-  <h3>Edit Flight Details</h3>
+    <%= render :partial => "form" %>
 
-  <%= render :partial => "form" %>
-
-  <%= button_to "Delete Flight", @flight, :method => 'delete' %>
-</section>
+    <%= button_to "Delete Flight", @flight, :method => 'delete' %>
+  </section>
+<% end %>

@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :check_for_no_login, except: [:destroy]
+
   def new
   end
 
@@ -13,4 +15,8 @@ class SessionsController < ApplicationController
     end
   end
 
+  def destroy
+      session[:user_id] = nil
+      redirect_to root_path
+  end
 end

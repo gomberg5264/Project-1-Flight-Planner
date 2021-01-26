@@ -1,4 +1,7 @@
 class FlightsController < ApplicationController
+  before_action :check_for_admin, only: [:new, :create, :update, :destroy]
+  before_action :check_for_login
+
   def index
     match_flights_and_airports
   end
@@ -36,6 +39,7 @@ class FlightsController < ApplicationController
   end
 
   def book
+    :check_for_login
     flight = Flight.find params[:id]
     @current_user.flights.push(flight) unless @current_user.flights.include?(flight)
     redirect_to user_path(@current_user.id)
