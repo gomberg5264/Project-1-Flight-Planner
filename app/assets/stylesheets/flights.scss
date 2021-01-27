@@ -4,12 +4,74 @@
 
 body {
   text-align: center;
+  font-size: 1.5rem;
 }
 
-h1 {
-  font-size: 5rem;
+ul {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+li a {
+  margin: 0;
 }
 
 a {
-  margin: 0 2%;
+  margin-left: 3%;
+}
+
+h1 {
+  margin: 3% auto;
+  color: black;
+  font-size: 6rem;
+  letter-spacing: 8px;
+}
+
+h2 {
+  margin: 4% auto;
+  font-size: 4rem;
+}
+
+h3 {
+  margin: 5% 0 3% 0;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.row {
+  margin: 4% 0;
+}
+
+p {
+  margin: 4% auto;
+}
+
+form {
+  margin-bottom: 5%;
+}
+
+label {
+  font-size: inherit;
+}
+
+input, select {
+  margin: 0 4% 0 1%;
+  text-align: center;
+}
+
+.flight-code {
+  margin: 0 1%;
+}
+
+.details {
+  margin: 5% auto;
+}
+
+.short {
+  width: 150px;
+}
+
+.button-row {
+  margin-left: 8%;
 }

@@ -14,31 +14,56 @@
   </head>
 
   <body>
-    <div class="container">
       <header>
-        <nav>
-          <ul>
-            <%= link_to "Home", root_path %>
-            <% unless @current_user.present? %>
-              <%= link_to "Sign Up", new_user_path %> <!-- Only for users not logged in -->
-              <%= link_to "Log In", sessions_new_path %> <!-- Only for users not logged in -->
-            <% else %>
-              <%= link_to "View Your Flights", user_path(@current_user.id) %> <!-- All logged in users-->
-              <%= link_to "Search For Flights", search_flights_path %> <!-- All logged in users -->
-              <%= link_to "View All Flights", flights_path %> <!-- All logged in users -->
-              <% if @current_user.admin? %>
-                <%= link_to "Add A New Flight", new_flight_path %> <!-- Admin Only -->
-                <%= link_to "View All Users", users_path %> <!-- Admin Only -->
-              <% end %>
-              <%= link_to "Log Out", sessions_destroy_path %> <!-- All logged in users -->
-            <% end %>
-          </ul>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item" aria-current="page">
+                    <%= link_to "Home", root_path, :class => "nav-link" %>
+                </li>
+                <% unless @current_user.present? %>
+                  <li class="nav-item">
+                      <%= link_to "Sign Up", new_user_path, :class => "nav-link" %> <!-- Only for users not logged in -->
+                  </li>
+                  <li class="nav-item">
+                      <%= link_to "Log In", sessions_new_path, :class => "nav-link" %> <!-- Only for users not logged in -->
+                  </li>
+                <% else %>
+                  <li class="nav-item">
+                      <%= link_to "View Your Flights", user_path(@current_user.id), :class => "nav-link" %> <!-- All logged in users-->
+                  </li>
+                  <li class="nav-item">
+                      <%= link_to "Search For Flights", search_flights_path, :class => "nav-link" %> <!-- All logged in users-->
+                  </li>
+                  <li class="nav-item">
+                      <%= link_to "View All Flights", flights_path, :class => "nav-link" %> <!-- All logged in users-->
+                  </li>
+                      <% if @current_user.admin? %>
+                        <li class="nav-item">
+                            <%= link_to "Add A New Flight", new_flight_path, :class => "nav-link" %> <!-- All logged in users-->
+                        </li>
+                        <li class="nav-item">
+                            <%= link_to "View All Users", users_path, :class => "nav-link" %> <!-- All logged in users-->
+                        </li>
+                      <% end %>
+                  <li class="nav-item">
+                      <%= link_to "Log Out", sessions_destroy_path, :class => "nav-link" %> <!-- All logged in users-->
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
         </nav>
       </header>
 
-      <h1>Flight Planner</h1>
+      <div class="container">
+        <h1>Flight Planner</h1>
 
-      <%= yield %>
-    </div>
+        <%= yield %>
+      </div>
   </body>
 </html>

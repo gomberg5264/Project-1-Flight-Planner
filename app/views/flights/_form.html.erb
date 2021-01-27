@@ -1,20 +1,23 @@
 <%= form_for @flight do |f| %>
   <!-- All the properties are required, since a flight must have all this properties to be bookable -->
   <%= f.label :code %>
-  <%= f.text_field :code, :required => true %>
+  <%= f.text_field :code, :required => true, :class => 'short' %>
 
   <%= f.label "Departure Time" %>
   <%= f.datetime_field :depart_time, :required => true %>
+  <p>
+    <%= f.label "Departure City" %>
+    <%= f.select :departure_airport_id, DepartureAirport.pluck(:city, :id), :required => true %>
 
-  <%= f.label :seats %>
-  <%= f.number_field :seats, :required => true %>
+    <%= f.label "Arrival City" %>
+    <%= f.select :arrival_airport_id, ArrivalAirport.pluck(:city, :id), :required => true %>
+  </p>
 
-  <%= f.label "Departure City" %>
-  <%= f.select :departure_airport_id, DepartureAirport.pluck(:city, :id), :required => true %>
+  <p>
+    <%= f.label :seats %>
+    <%= f.number_field :seats, :required => true , :class => 'short' %>
 
-  <%= f.label "Arrival City" %>
-  <%= f.select :arrival_airport_id, ArrivalAirport.pluck(:city, :id), :required => true %>
-
-  <%= f.submit %>
+    <%= f.submit "Submit", :class => "btn btn-success btn-lg" %>
+  </p>
 
 <% end %>

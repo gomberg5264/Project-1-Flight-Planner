@@ -9,21 +9,27 @@
 <% end %>
 
 <%= form_for @user do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name, :required => true %>
+  <p>
+    <%= f.label :name %>
+    <%= f.text_field :name, :required => true %>
 
-  <%= f.label :email %>
-  <%= f.email_field :email, :required => true %>
+    <%= f.label :email %>
+    <%= f.email_field :email, :required => true %>
+  </p>
 
-  <%= f.label :mobile %>
-  <%= f.text_field :mobile %>
+  <p>
+    <%= f.label :mobile %>
+    <%= f.text_field :mobile %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password, :required => true %>
+    <%= f.label :password %>
+    <%= f.password_field :password, :required => true %>
+  </p>
 
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation, :required => true %>
+  <p>
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, :required => true %>
 
-  <%= f.submit "Sign Up!" %>
+    <%= f.submit "Sign Up!", :class => "btn btn-dark btn-lg" %>
+  </p>
 
 <% end %>

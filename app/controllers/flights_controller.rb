@@ -41,7 +41,11 @@ class FlightsController < ApplicationController
   def book
     :check_for_login
     flight = Flight.find params[:id]
-    @current_user.flights.push(flight) unless @current_user.flights.include?(flight)
+    unless @current_user.flights.include?(flight) || flight.seats < 1
+      @current_user.flights.push(flight)
+      flight.seats-=1
+      flight.save
+    end
     redirect_to user_path(@current_user.id)
   end
 

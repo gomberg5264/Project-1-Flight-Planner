@@ -1,16 +1,12 @@
 <h2>User List</h2>
 
-<p>Make this only accessibe to admin!</p>
-
 <% @users.each do |user| %>
-  <p>
-      <%= link_to user.name, user_path(user.id) %>
-  </p>
-  <p>
-      Email: <%= user.email %>
-  </p>
-  <p>
+  <div class="details">
+    <p>
+      <%= link_to user.name, user_path(user.id) %>,
+      Email: <%= user.email %>,
       Mobile: <%= user.mobile %>
-  </p>
+    </p>
+  </div>
 
 <% end %>
