@@ -1,11 +1,5 @@
 <h2>Login</h2>
 
-<% if flash[:error].present? %>
-  <p class="error">
-    <%= flash[:error] %>
-  </p>
-<% end %>
-
 <%= form_tag sessions_create_path do %>
 
     <%= label_tag :email %>
@@ -15,4 +9,10 @@
     <%= password_field_tag :password %>
 
     <%= submit_tag "Log in", :class => "btn btn-dark btn-lg" %>
+<% end %>
+
+<% if flash[:error].present? %>
+  <p class="error">
+    <%= flash[:error] %>
+  </p>
 <% end %>

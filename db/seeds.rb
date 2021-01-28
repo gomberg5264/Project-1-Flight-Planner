@@ -11,15 +11,15 @@ u2 = User.create :name => "Jackson Sexton", :mobile => "0410555678", :email => '
 puts "#{ User.count } users."
 
 DepartureAirport.destroy_all
-d1 = DepartureAirport.create :name => "Moscow Domodedovo Airport", :city => "Moscow", :longitude => 55.4103, :latitude => 37.9025
-d2 = DepartureAirport.create :name => "Novosibirsk Tolmachevo Airport", :city => "Novosibirsk", :longitude => 55.0114, :latitude => 82.6522
-d3 = DepartureAirport.create :name => "Pulkovo Airport", :city => "Saint Petersburg", :longitude => 59.4801, :longitude => 30.1545
+d1 = DepartureAirport.create :name => "Moscow Domodedovo Airport", :city => "Moscow", :longitude => 55.4103, :latitude => 37.9025, :timezone_offset => 3
+d2 = DepartureAirport.create :name => "Novosibirsk Tolmachevo Airport", :city => "Novosibirsk", :longitude => 55.0114, :latitude => 82.6522, :timezone_offset => 7
+d3 = DepartureAirport.create :name => "Pulkovo Airport", :city => "Saint Petersburg", :longitude => 59.4801, :latitude => 30.1545,  :timezone_offset => 3
 puts "#{ DepartureAirport.count } airports."
 
 ArrivalAirport.destroy_all
-a1 = ArrivalAirport.create :name => "Moscow Domodedovo Airport", :city => "Moscow", :longitude => 55.4103, :latitude => 37.9025
-a2 = ArrivalAirport.create :name => "Novosibirsk Tolmachevo Airport", :city => "Novosibirsk", :longitude => 55.0114, :latitude => 82.6522
-a3 = ArrivalAirport.create :name => "Pulkovo Airport", :city => "Saint Petersburg", :longitude => 59.4801, :longitude => 30.1545
+a1 = ArrivalAirport.create :name => "Moscow Domodedovo Airport", :city => "Moscow", :longitude => 55.4103, :latitude => 37.9025,  :timezone_offset => 3
+a2 = ArrivalAirport.create :name => "Novosibirsk Tolmachevo Airport", :city => "Novosibirsk", :longitude => 55.0114, :latitude => 82.6522,  :timezone_offset => 7
+a3 = ArrivalAirport.create :name => "Pulkovo Airport", :city => "Saint Petersburg", :longitude => 59.4801, :latitude => 30.1545,  :timezone_offset => 3
 puts "#{ ArrivalAirport.count } airports."
 
 Flight.destroy_all

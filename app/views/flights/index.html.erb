@@ -1,9 +1,15 @@
 <h2> All Flights</h2>
 
-<% @flights.each_with_index do |flight, index| %>
-  <p>
-    <%= link_to flight.code, flight_path(flight.id), :class => "flight-code" %> 
-    <%= flight.depart_time %> <%= @departure_airports[index].city %> to <%= @arrival_airports[index].city %>
-  </p>
+<div class="flight-list">
+  <% @flights.each_with_index do |flight, index| %>
+    <p>
+      <%= link_to flight.code, flight_path(flight.id), :class => "flight-code" %>
+      <%= flight.depart_time.strftime("%-d %B %Y, %I:%M%P") %> <%= @departure_airports[index].city %> to <%= @arrival_airports[index].city %>
+    </p>
 
+  <% end %>
+</div>
+
+<% if flash[:error].present? %>
+  <%= javascript_tag 'alert("Flight Deleted")' %>
 <% end %>

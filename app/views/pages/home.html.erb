@@ -2,11 +2,10 @@
 
 <% if @current_user.present? %>
   <p> You are logged in as <%= @current_user.name %></p>
-  <p> Your your booked flights and book new ones using the buttons below </p>
+  <p> View your bookings and book new flights using the buttons below.</p>
+  <div class="section-group">
 
-  <div class="row button-row">
-
-    <%= link_to "View Your Flights", user_path(@current_user.id), :class => "btn btn-dark btn-lg col-3" %>
+    <%= link_to "View Your Bookings", user_path(@current_user.id), :class => "btn btn-dark btn-lg col-3" %>
 
     <%= link_to "Search For Flights", search_flights_path, :class => "btn btn-dark btn-lg col-3" %>
 
@@ -18,8 +17,8 @@
   <p>To Start Booking Flights, Sign Up or Log In</p>
 
   <div class="row button-row">
-    <span class="col-1"></span>
-    <%= link_to "Sign up", new_user_path, :class => "btn btn-dark btn-lg col-3" %>
+    <span class="col-2"></span>
+    <%= link_to "Sign Up", new_user_path, :class => "btn btn-dark btn-lg col-3" %>
     <span class="col-2"></span>
     <%= link_to "Login", sessions_new_path, :class => "btn btn-dark btn-lg col-3" %>
   </div>

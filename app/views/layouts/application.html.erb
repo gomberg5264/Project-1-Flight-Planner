@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FlightPlanner</title>
+    <title>Flight Planner</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,17 +11,15 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
       <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <div class="navbar" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
                 <li class="nav-item" aria-current="page">
                     <%= link_to "Home", root_path, :class => "nav-link" %>
                 </li>
@@ -34,7 +32,7 @@
                   </li>
                 <% else %>
                   <li class="nav-item">
-                      <%= link_to "View Your Flights", user_path(@current_user.id), :class => "nav-link" %> <!-- All logged in users-->
+                      <%= link_to "View Your Bookings", user_path(@current_user.id), :class => "nav-link" %> <!-- All logged in users-->
                   </li>
                   <li class="nav-item">
                       <%= link_to "Search For Flights", search_flights_path, :class => "nav-link" %> <!-- All logged in users-->
@@ -44,7 +42,7 @@
                   </li>
                       <% if @current_user.admin? %>
                         <li class="nav-item">
-                            <%= link_to "Add A New Flight", new_flight_path, :class => "nav-link" %> <!-- All logged in users-->
+                            <%= link_to "Create A New Flight", new_flight_path, :class => "nav-link" %> <!-- All logged in users-->
                         </li>
                         <li class="nav-item">
                             <%= link_to "View All Users", users_path, :class => "nav-link" %> <!-- All logged in users-->
@@ -65,5 +63,6 @@
 
         <%= yield %>
       </div>
+
   </body>
 </html>

@@ -13,6 +13,10 @@ ul {
   width: 100%;
 }
 
+li {
+  padding: 0 8px;
+}
+
 li a {
   margin: 0;
 }
@@ -39,12 +43,20 @@ h3 {
   font-weight: 600;
 }
 
-.row {
-  margin: 4% 0;
+div.section-group {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-p {
-  margin: 4% auto;
+section {
+  display: inline-block;
+  width: 42%;
+}
+
+.info {
+  line-height: 1.7;
 }
 
 form {
@@ -52,7 +64,31 @@ form {
 }
 
 label {
+  display: inline;
+}
+
+.form-control {
+  display: inline-block;
+  margin-top: 1px;
+  width: 70%;
+}
+
+#confirm-password {
+  width: 40%;
+}
+
+div.field_with_errors {
+  display: inline;
+}
+
+.row {
+  width: 75%;
+  margin: 4% auto;
+}
+
+label {
   font-size: inherit;
+  text-align: left;
 }
 
 input, select {
@@ -60,18 +96,18 @@ input, select {
   text-align: center;
 }
 
+.admin-form {
+  margin-right: 100px;
+}
+
 .flight-code {
   margin: 0 1%;
 }
 
-.details {
-  margin: 5% auto;
+.flight-list {
+  margin: 40px 50px 100px 0;
 }
 
-.short {
-  width: 150px;
-}
-
-.button-row {
-  margin-left: 8%;
+#flight_arrival_airport_id {
+  margin: 18px 100px 18px 0;
 }

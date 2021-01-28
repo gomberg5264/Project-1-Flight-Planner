@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_25_060005) do
+ActiveRecord::Schema.define(version: 2021_01_28_045233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2021_01_25_060005) do
     t.text "city"
     t.decimal "longitude"
     t.decimal "latitude"
+    t.decimal "timezone_offset"
   end
 
   create_table "departure_airports", force: :cascade do |t|
@@ -27,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_01_25_060005) do
     t.text "city"
     t.decimal "longitude"
     t.decimal "latitude"
+    t.decimal "timezone_offset"
   end
 
   create_table "flights", force: :cascade do |t|

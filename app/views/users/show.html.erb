@@ -1,47 +1,57 @@
-<h2><%= @user.name %></h2>
+<h2>Booked Flights</h2>
 
-<h3>Current Booked Flights</h3>
+<% unless @user.flights.length < 1 %>
+  <div class="row">
+    <% @user.flights.each do |flight| %>
+      <div class="col-2">
+        <%= link_to flight.code, flight_path(flight.id) %>
+        <%= button_to "Cancel Booking", flight_cancel_path(flight.id), :method => 'get', :class => "btn btn-danger btn-sm" %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p>You haven't booked any flights.</p>
+<% end %>
 
-<div class="row">
-  <span class="col-2"></span>
-  <% @user.flights.each do |flight| %>
-    <div class="col-2">
-      <%= link_to flight.code, flight_path(flight.id) %>
-      <%= button_to "Cancel booking", flight_cancel_path(flight.id), :method => 'get', :class => "btn btn-danger btn-md" %>
-    </div>
-  <% end %>
+<div class="section-group">
+
+  <section>
+    <h3>Edit Your Details</h3>
+
+    <%= form_for @user do |f| %>
+      <div class="mb-3">
+        <%= f.label :name %>
+        <%= f.text_field :name, :required => true, :class => "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :email %>
+        <%= f.email_field :email, :required => true, :class => "form-control"  %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :mobile %>
+        <%= f.text_field :mobile, :class => "form-control"  %>
+      </div>
+
+      <!-- I might later add the option to change password by first submitting the original -->
+
+        <%= f.submit "Edit Details", :class => "btn btn-success btn-lg" %>
+
+    <% end %>
+  </section>
+
+
+    <section>
+      <h3>Personal Details</h3>
+
+      <p class="info">Name: <%= @user.name %></p>
+      <p class="info">Mobile: <%= @user.mobile %></p>
+      <p class="info">Email: <%= @user.email %></p>
+
+      <%= button_to "Delete Account", @user, :method => 'delete', :class => "btn btn-danger btn-lg" %>
+    </section>
 
 </div>
 
-
-<h3>Personal Details</h3>
-
-<p>Mobile: <%= @user.mobile %></p>
-<p>Email: <%= @user.email %></p>
-
-<h3>Edit Your Details</h3>
-
-<%= form_for @user do |f| %>
-  <p>
-    <%= f.label :name %>
-    <%= f.text_field :name, :required => true %>
-
-    <%= f.label :email %>
-    <%= f.email_field :email, :required => true %>
-  </p>
-  <p>
-    <%= f.label :mobile %>
-    <%= f.text_field :mobile %>
-
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-
-  </p>
-
-  <!-- I might later add the option to change password by first submitting the original -->
-
-    <%= f.submit "Edit Details", :class => "btn btn-success btn-lg" %>
-
+<% if flash[:error].present? %>
+  <%= javascript_tag 'alert("Booking")' %>
 <% end %>
-
-    <%= button_to "Delete Account", @user, :method => 'delete', :class => "btn btn-danger btn-lg" %>

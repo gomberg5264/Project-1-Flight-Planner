@@ -12,8 +12,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.create user_params
-    if user.save
+    @user = User.create user_params
+    if @user.save
+      # Automatically log the user in after they sign up
+      session[:user_id] = @user.id
       redirect_to root_path
     else
       render :new

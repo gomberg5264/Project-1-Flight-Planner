@@ -25,7 +25,11 @@
     <%= label_tag "Departure Date" %>
     <%= date_field_tag :depart_time %>
 
-    <%= submit_tag "Search", :class => "btn btn-dark btn-lg" %>
+    <%= submit_tag "Apply Filters", :class => "btn btn-dark btn-lg" %>
   </p>
 
+<% end %>
+
+<% if flash[:error].present? %>
+  <%= javascript_tag 'alert("Departure And Arrival Airports Cannot Match")' %>
 <% end %>

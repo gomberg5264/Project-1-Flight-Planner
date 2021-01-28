@@ -1,23 +1,38 @@
-<%= form_for @flight do |f| %>
-  <!-- All the properties are required, since a flight must have all this properties to be bookable -->
-  <%= f.label :code %>
-  <%= f.text_field :code, :required => true, :class => 'short' %>
+  <div class="section-group">
+    <%= form_for @flight do |f| %>
+      <!-- All the properties are required, since a flight must have all this properties to be bookable -->
+        <section>
+          <div class="mb-3">
+            <%= f.label :code %>
+            <%= f.text_field :code, :required => true, :class => "form-control", :pattern => "[A-Z]{2}[0-9]{3}", :placeholder => "SU001" %>
+          </div>
+          <div class="mb-3">
+            <%= f.label "From" %>
+            <%= f.select :departure_airport_id, DepartureAirport.pluck(:city, :id), :required => true %>
+          </div>
+          <div class="mb-3">
+            <%= f.label "Departs" %>
+            <%= f.datetime_field :depart_time, :required => true, :class => "form-control", :min => Time.now.change({sec: 0}), :max => "31-12-2100 00:00:00", :step => 60 %>
+          </div>
 
-  <%= f.label "Departure Time" %>
-  <%= f.datetime_field :depart_time, :required => true %>
-  <p>
-    <%= f.label "Departure City" %>
-    <%= f.select :departure_airport_id, DepartureAirport.pluck(:city, :id), :required => true %>
+        </section>
+        <section>
 
-    <%= f.label "Arrival City" %>
-    <%= f.select :arrival_airport_id, ArrivalAirport.pluck(:city, :id), :required => true %>
-  </p>
+            <%= f.label :seats %>
+            <%= f.number_field :seats, :required => true, :class => "form-control", :min => 1, :max => 1000 %>
 
-  <p>
-    <%= f.label :seats %>
-    <%= f.number_field :seats, :required => true , :class => 'short' %>
+            <%= f.label "Arrivals" %>
+            <%= f.select :arrival_airport_id, ArrivalAirport.pluck(:city, :id), :required => true %>
 
-    <%= f.submit "Submit", :class => "btn btn-success btn-lg" %>
-  </p>
+            <%= f.submit "Submit", :class => "btn btn-success btn-lg" %>
+        </section>
 
-<% end %>
+    <% end %>
+
+  </div>
+
+  <% if flash[:error].present? %>
+      <p>
+        <%= flash[:error] %>
+      </p>
+  <% end %>

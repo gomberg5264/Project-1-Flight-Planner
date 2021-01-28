@@ -1,21 +1,23 @@
 <h2><%= @flight.code %></h2>
 
 <p><strong>Departure Airport:</strong> <%= @departure_airport.name %> in <%= @departure_airport.city %> </p>
-<p><strong>Departure Time:</strong> <%= @flight.depart_time %></p>
+<p><strong>Departure Time:</strong> <%= @flight.depart_time.strftime("%-d %B %Y, %I:%M%P") %>, local time</p>
 
 <p><strong>Arrival Airport:</strong> <%= @arrival_airport.name %> in <%= @arrival_airport.city %> </p>
+<p><strong>Arrival Time (estimated):</strong> <%= @arrival_time.strftime("%-d %B %Y, %I:%M%P") %>, local time </p>
 
 <p>
   <strong>Seats Available:</strong> <%= @flight.seats %>
-  <%= link_to "Book Flight", flight_book_path, :method => "post", :class => "btn btn-success btn-lg" %>
+  <%= link_to "Book Flight", flight_book_path, :method => "post", :class => "btn btn-success btn-lg" unless @flight.seats < 1 %>
+  <%= link_to "Flight Full", {}, :disabled => true, :method => "post", :class => "btn btn-danger btn-lg disabled" if @flight.seats < 1 %>
 </p>
 
 <% if @current_user.admin? %>
-  <section>
+
     <h3>Edit Flight Details</h3>
 
     <%= render :partial => "form" %>
 
     <%= button_to "Delete Flight", @flight, :method => "delete", :class => "btn btn-danger btn-lg" %>
-  </section>
+
 <% end %>
