@@ -1,24 +1,71 @@
-# README
+# Project-1-Flight-Planner
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A flight booking website (mimicking aviation company's online booking systems) made for the second project of the GA Software Engineering Course
 
-Things you may want to cover:
+Live Website: https://floating-refuge-91114.herokuapp.com/
 
-* Ruby version
+## Outstanding issues
 
-* System dependencies
+* The site does not automatically log a user in after they sign up
+* The site is not very user friendly and needs to provide more information (including warnings about canceling/deleting flights) to users 
+* The times need to be formated in a more user friendly way
+* It shouldn't be possible to add a flight which has the same departure and arrival city
 
-* Configuration
+## Technologies Used
+* HTML (with embedded Ruby)
+* CSS and Bootstrap for styling
+* Ruby on Rails
+* PostgreSQL 
+* Heroku (for deployment)
+* Google maps API (for bonus functionality)
 
-* Database creation
+## Website Production Updates
 
-* Database initialization
+### 27/01/21 11:50pm
 
-* How to run the test suite
+Step Four in Progress Complete: Styling Complete. Seat number tracking complete. The next step is to use the Google Maps API to determine flight distances / arrival time and make the website more user friendly (addressing the issues listed above). Adding a CRUD system for airport is a lower priority. 
 
-* Services (job queues, cache servers, search engines, etc.)
+### 26/01/21 5:30pm
 
-* Deployment instructions
+Step Three Complete: Permissions added. Pages that require user login are only available to logged in users and pages that require admin status are only accessible to admin. In the current version, users must be logged in to search for and view flights. This may be changed in later versions. Bootstrap and basic styling added. Website deployed on Heroku. The next step is to improve the styling and start adding bonus functionality.
 
-* ...
+### 25/01/21 9:40pm
+
+Step Two Complete: Basic functionality added, including CRUD systems for users and flights, as well as the ability to search for, book and cancel flights. Users can log in, though the site currently gives no indication as to who is logged in and all of the site's functionality is available to all users. The next step is to ensure that only logged in users can access the site's functionality and that only admins can access admin-specific pages and forms.
+
+### 24/01/21 11:50pm
+
+Step One Complete: Database set up and seeded (users and flights appear on the website correctly). Routes, controller and views set up for users and flights. No routes, controllers or views will be needed for the airports, though they may be added as bonus functionality in Step Four. The next step is to add basic functionality (user CRUD systems, user log in / log out, flight searching / booking and flight CRUD systems).
+
+## Website Production Plan
+
+### Step One
+* Create a new Ruby on Rails project
+* Design, create and seed a database with information about users, flights, airports and how they're connected
+* Design a user story and use that to set up the routes, controllors and views needed for the website
+* Add the basic site layout to application.html.erb (navber, headings, etc.)
+* Commit initial version to GitHub and edit readme file
+
+### Step Two
+* Add general functionality related to the users (sign up, log in, edit details, sign out)
+* Add general functionality related to the flights (view booked flights, search for flights, book flights, cancel flights)
+* Add admin specific functionality (view user index, create flights, edit flights, delete flights)
+* Commit updated version to GitHub and edit readme file
+
+### Step Three
+* Apply permissions (make sure that users need to be logged in to use the site and that admin-specific functionality is only accessible to admins)
+* Style the website using CSS and Bootstrap
+* Test the website as a potential user/admin to make sure everything works
+* Deploy the website (if it hasn't been deployed already)
+* Commit updated version to Heroku and edit readme file
+
+### Step Four - bonus functionality
+* Prevent users from massively overbooking a flight by including data about the plane and number of seats available
+* Use the Google Maps API to estimate flight distances and therefore arrival times
+* Enable airports to be added, edited and deleted
+* Commit updated version to Heroku and edit readme file (copy this readme file into the readme file from the main project and add heroku link to the description)
+
+### Step Five
+* Review and optimise code wherever possible
+* Test the website as a potential user/admin to make sure everything (including bonus functionality) works
+* Commit updated version to Heroku and edit readme file
