@@ -80,7 +80,7 @@ class FlightsController < ApplicationController
   def cancel
     flight = Flight.find params[:id]
     if @current_user.flights.include?(flight)
-      flash[:error] = "Deleting Flight"
+      flash[:error] = "Cancelling Flight"
       # Removes a booking
       @current_user.flights.delete(flight)
       # Increases the available seat count after a booking is cancelled

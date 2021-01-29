@@ -52,6 +52,8 @@
 
 </div>
 
-<% if flash[:error].present? %>
-  <%= javascript_tag 'alert("Booking")' %>
+<% if flash[:error] == "Cancelling Flight" %>
+  <%= javascript_tag 'alert("Booking Cancelled")' %>
+<% elsif flash[:error].present? %>
+  <%= javascript_tag 'alert("Stop Trying to Hack Accounts. Go back to yours.")' %>  
 <% end %>

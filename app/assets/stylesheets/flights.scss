@@ -5,6 +5,11 @@
 body {
   text-align: center;
   font-size: 1.5rem;
+  margin-bottom: 50px;
+}
+
+.navbar {
+  width: 100%;
 }
 
 ul {
@@ -84,6 +89,8 @@ div.field_with_errors {
 .row {
   width: 75%;
   margin: 4% auto;
+  display: flex;
+  justify-content: center;
 }
 
 label {

@@ -4,26 +4,28 @@ A flight booking website (mimicking aviation company's online booking systems) m
 
 Live Website: https://floating-refuge-91114.herokuapp.com/
 
-## Outstanding issues
+## Further Improvements
 
-* The site does not automatically log a user in after they sign up
-* The site is not very user friendly and needs to provide more information (including warnings about canceling/deleting flights) to users 
-* The times need to be formated in a more user friendly way
-* It shouldn't be possible to add a flight which has the same departure and arrival city
+* The site alerts users when they cancel bookings or delete flights, but it might be better to give them the option to cancel the action as well
+* A CRUD system for airports could be added to the site
 
 ## Technologies Used
 * HTML (with embedded Ruby)
 * CSS and Bootstrap for styling
 * Ruby on Rails
-* PostgreSQL 
+* PostgreSQL
 * Heroku (for deployment)
-* Google maps API (for bonus functionality)
+* Geokit Gem (to calculate flight distances)
 
 ## Website Production Updates
 
+### 29/01/21 1:00pm
+
+Step Five Complete: The website can determine flight distances and estimate arrival times in local time. It is more user friendly, displaying local times in a readable way. I didn't have time to add a CRUD system for the airports. I reviewed the code, adding comments to the controllers and tested the website to ensure it is stable.
+
 ### 27/01/21 11:50pm
 
-Step Four in Progress Complete: Styling Complete. Seat number tracking complete. The next step is to use the Google Maps API to determine flight distances / arrival time and make the website more user friendly (addressing the issues listed above). Adding a CRUD system for airport is a lower priority. 
+Step Four in Progress Complete: Styling Complete. Seat number tracking complete. The next step is to determine flight distances / arrival time and make the website more user friendly (addressing the issues listed above). Adding a CRUD system for airport is a lower priority.
 
 ### 26/01/21 5:30pm
 
