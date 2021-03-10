@@ -2,7 +2,7 @@
 
 A flight booking website (mimicking aviation company's online booking systems) made for the second project of the GA Software Engineering Course
 
-Live Website: https://floating-refuge-91114.herokuapp.com/
+Live Website: https://flight-planner-app.herokuapp.com/
 
 ## Further Improvements
 
