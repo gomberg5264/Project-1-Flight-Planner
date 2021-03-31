@@ -8,8 +8,13 @@
 
 <p>
   <strong>Seats Available:</strong> <%= @flight.seats %>
-  <%= link_to "Book Flight", flight_book_path, :method => "post", :class => "btn btn-success btn-lg" unless @flight.seats < 1 %>
-  <%= link_to "Flight Full", {}, :disabled => true, :method => "post", :class => "btn btn-danger btn-lg disabled" if @flight.seats < 1 %>
+  <% if @flight.seats < 1 %>
+    <%= link_to "Flight Full", {}, :disabled => true, :method => "post", :class => "btn btn-danger btn-lg disabled" %>
+  <% elsif @current_user.flights.include?(@flight) %>
+    <%= link_to "Flight Already Booked", {}, :disabled => true, :method => "post", :class => "btn btn-danger btn-lg disabled" %>
+  <% else %>
+    <%= link_to "Book Flight", flight_book_path, :method => "post", :class => "btn btn-success btn-lg" %>
+  <% end %>
 </p>
 
 <% if @current_user.admin? %>

@@ -4,17 +4,14 @@ A flight booking website (mimicking aviation company's online booking systems) m
 
 Live Website: https://flight-planner-app.herokuapp.com/
 
-## Ongoing Issues
-
-* Navbar text is appears too large on smaller screens
-* Users can try to book already booked flights. It would be a better idea to not display the "book" button if a flight is booked
-
 ## Further Improvements
 
+* The site no longer needs to alert the user if they try to book a flight they've already booked, since it's no longer possible
 * The site alerts users when they cancel bookings or delete flights, but it might be better to give them the option to cancel the action as well
 * A CRUD system for airports could be added to the site
 * Prevent the values from being deleted from the new flight form if the form fails to submit
 * Prevent users from booking multiple flights that travel during the same period of time (could be tricky if time zones are taken into account)
+* Make Site Responsive
 
 ## Technologies Used
 * HTML (with embedded Ruby)
