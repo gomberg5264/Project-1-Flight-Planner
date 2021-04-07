@@ -31,6 +31,8 @@ gem 'jquery-rails'
 
 gem 'geokit'
 
+gem 'mimemagic', '~> 0.3.10'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
